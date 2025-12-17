@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RS Portfolio - About Me</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+}
+
+
+html, body {
+    min-height: 100%;
+    height: 100%; 
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+
+nav .logo-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 2px; 
+}
+
+nav .logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #f7b338;
+}
+
+nav #current-time {
+    display: flex; 
+    align-items: center;
+    font-size: 13px; 
+    color: #a0a0a0; 
+    font-weight: 300; 
+    padding: 0;
+    margin-left: 2px; 
+}
+
+#current-time .separator {
+    margin: 0 8px;
+    color: rgba(255, 255, 255, 0.2);
+    font-weight: 200;
+}
+
+#current-time .time-display {
+    color: #fff; 
+    font-size: 14px; 
+    font-weight: bold; 
+    letter-spacing: 1px;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f7b338;
+}
+
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 100px 50px 50px 50px; 
+    gap: 50px;
+    flex-grow: 1; 
+}
+
+.about .left img {
+    width: 300px; 
+    height: auto;
+    border-radius: 10px; 
+}
+
+.about .right {
+    max-width: 600px;
+    padding-bottom: 80px; 
+}
+
+.about .right h2 {
+    color: #f7b338;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.about .right p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #dcdcdc;
+}
+
+
+.detail-list li {
+    display: flex;
+    line-height: 1.8;
+    align-items: center;
+}
+
+.detail-list li strong {
+    min-width: 150px;
+    display: inline-block;
+    position: relative;
+    margin-right: 15px; 
+}
+.detail-list li strong::after {
+    content: ":";
+    position: absolute;
+    right: 0;
+}
+
+
+.detail-section {
+    margin-top: 30px;
+}
+
+.detail-section h3 {
+    color: #f7b338;
+    margin-bottom: 15px;
+    font-size: 20px;
+    border-bottom: 1px solid rgba(247, 179, 56, 0.3);
+    padding-bottom: 5px;
+}
+
+.media-list {
+    list-style: none;
+    padding: 0;
+}
+
+.media-list li {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+    align-items: flex-start;
+}
+.media-list li:last-child {
+    border-bottom: none;
+}
+
+.media-image {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+}
+.media-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.media-content {
+    flex-grow: 1;
+}
+.media-content strong {
+    display: block;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+.media-content span {
+    display: block;
+    font-size: 14px;
+    color: #dcdcdc;
+    margin-bottom: 10px;
+}
+
+.audio-player audio {
+    width: 100%;
+    max-width: 300px;
+    height: 30px;
+}
+
+
+.trailer-embed {
+    margin-top: 10px;
+}
+
+.trailer-embed video {
+    width: 100%;
+    height: auto;
+    max-height: 300px; 
+    border: none;
+    border-radius: 5px;
+    display: block;
+}
+
+
+footer.site-footer {
+    width: 100%;
+    background: #222222;
+    color: #a0a0a0; 
+    padding: 40px 50px; 
+    font-size: 14px;
+    z-index: 900;
+    border-top: none; 
+    box-sizing: border-box;
+    margin-top: auto; 
+}
+
+footer.site-footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding-bottom: 20px; 
+    margin-bottom: 0;
+}
+
+footer.site-footer .left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+footer.site-footer .left-section .logo-allin {
+    font-size: 20px; 
+    font-weight: bold; 
+    color: #ffffff; 
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+footer.site-footer .left-section .logo-allin::before {
+    content: 'RS'; 
+    font-size: 50px; 
+    font-weight: 900;
+    margin-right: 5px;
+    line-height: 1;
+    display: inline-block;
+    color: white;
+}
+
+
+footer.site-footer a {
+    color: #ffffff; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer.site-footer a:hover {
+    color: #f7b338; 
+}
+
+footer.site-footer .info p {
+    margin: 3px 0;
+    line-height: 1.5;
+}
+
+footer.site-footer .right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    gap: 15px; 
+    margin-top: 15px;
+    max-width: 60%; 
+}
+
+
+footer.site-footer .secondary-nav-menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 25px;
+    margin: 0;
+    width: 100%;
+    justify-content: flex-end; 
+}
+
+footer.site-footer .secondary-nav-menu li a {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 15px;
+    white-space: nowrap; 
+}
+footer.site-footer .secondary-nav-menu li a:hover {
+    color: #f7b338;
+}
+
+
+
+footer.site-footer .social-icons {
+    display: flex;
+    gap: 20px;
+    align-self: flex-end; 
+    margin-bottom: 15px; 
+}
+
+footer.site-footer .social-icons a {
+    color: #ffffff;
+    font-size: 20px; 
+}
+
+footer.site-footer .copyright-bottom {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    width: 100%;
+    text-align: right;
+    font-size: 12px;
+    color: #777777; 
+    padding-top: 10px;
+}
+
+@media (max-width: 900px) {
+    .about {
+        flex-direction: column;
+        align-items: center;
+        padding: 100px 20px 50px 20px;
+    }
+    .about .left img {
+        width: 250px;
+    }
+    .about .right {
+        max-width: 100%;
+        padding-bottom: 40px;
+    }
+    .detail-list li strong {
+        min-width: 100px;
+    }
+    footer.site-footer .right-section {
+        align-items: flex-start;
+        max-width: 100%;
+        margin-top: 30px;
+    }
+    footer.site-footer .secondary-nav-menu,
+    footer.site-footer .social-icons,
+    footer.site-footer .copyright-bottom {
+        justify-content: flex-start; 
+        align-self: flex-start;
+    }
+    footer.site-footer .copyright-bottom {
+        text-align: left;
+    }
+}
+</style>
+</head>
+<body>
+
+
+<nav>
+    <div class="logo-container">
+        <div class="logo">RS PORTFOLIO</div>
+        <div id="current-time"></div> 
+    </div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skill.html">Skills</a></li>
+        <li><a href="edu.html">Education</a></li>
+        <li><a href="work.html">Work Experience</a></li>
+        <li><a href="pro.html">Project</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="gallary.html">Gallery</a></li>
+    </ul>
+</nav>
+
+
+<section class="about">
+    <div class="left">
+        <img src="ke.jpg" alt="Profile Picture">
+    </div>
+
+    <div class="right">
+        <h2>About Me</h2>
+        <p>My name is Muhammad Rasyad Bin Saedin, a 20-year-old from Selangor. I am currently pursuing a Diploma in Information Management at UiTM Segamat,
+            College of Computing, Informatics, and Mathematics. Skilled in C++, HTML, MySQL, Microsoft Office, and data management, I have experience at HASA Hospital,
+            managing medical records, ensuring accurate organization, entry, and retrieval of patient information efficiently. </p>
+            
+        <div class="detail-section">
+            <h3>My Detail</h3>
+            
+        <ul class="detail-list" style="list-style: none; padding: 0; color: #dcdcdc; font-size: 18px;">
+            <li><strong>Name</strong> Muhammad Rasyad Bin Saedin</li>
+            <li><strong>Date of Birth</strong> June 27, 2005</li>
+            <li><strong>Address</strong> Saujana Utama 1, Sungai Buloh, 47000 Selangor</li>
+            <li><strong>Email</strong> rsyd146@gmail.com</li>
+            <li><strong>Phone</strong> +60 11-18814557</li>
+            <li><strong>Status</strong> Single</li>
+            <li><strong>Hobby</strong> Swimming</li>
+        </ul>
+        </div>
+
+        <div class="detail-section">
+            <h3>🎧 Top 4 Favorite Songs (Playlist)</h3>
+            <ul class="media-list">
+                <li>
+                    <div class="media-image">
+                        <img src="victim.jpg" alt="victim">
+                    </div>
+                    <div class="media-content">
+                        <strong>Victim</strong>
+                        <span>Avenged Sevenfold</span>
+                        <div class="audio-player">
+                             <audio controls>
+                                    <source src="videoplayback.weba" type="audio/mpeg">
+                                    
+                             </audio>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="media-image">
+                        <img src="mia.jpg" alt="Sunflower cover">
+                    </div>
+                    <div class="media-content">
+                        <strong>M.I.A</strong>
+                        <span>Avenged Sevenfold</span>
+                        <div class="audio-player">
+                             <audio controls>
+                                    <source src="mia.weba" type="audio/mpeg">
+                                    
+                             </audio>
+                        </div>
+                    </div>
+                </li>
+                 <li>
+                    <div class="media-image">
+                        <img src="save,jpg.jpg" alt="The Nights cover">
+                    </div>
+                    <div class="media-content">
+                        <strong>Save Me</strong>
+                        <span>Avenged Sevenfold</span>
+                        <div class="audio-player">
+                             <audio controls>
+                                    <source src="save.weba" type="audio/mpeg">
+                                    
+                             </audio>
+                        </div>
+                    </div>
+                </li>
+                 <li>
+                    <div class="media-image">
+                        <img src="zain.jpg" alt="Shape of You cover">
+                    </div>
+                    <div class="media-content">
+                        <strong>Sedetik Lebih</strong>
+                        <span>Anuar Zain</span>
+                        <div class="audio-player">
+                             <audio controls>
+                                    <source src="zain.weba" type="audio/mpeg">
+                                    
+                             </audio>
+                        </div>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+        
+        <div class="detail-section">
+            <h3>🎬 Top 3 Favorite Movies</h3>
+            <ul class="media-list">
+                <li>
+                    <div class="media-image">
+                        <img src="f1.jpg" alt="F1 The Movie poster">
+                    </div>
+                    <div class="media-content">
+                        <strong>F1 The Movie (2025)</strong>
+                        <span>Directors: Joseph Kosinski</span>
+                        <div class="trailer-embed">
+                             <video controls>
+                                    <source src="f1.mp4.mp4" type="video/mp4">
+                                    
+                             </video>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="media-image">
+                        <img src="nezha.jpg" alt="Inception poster">
+                    </div>
+                    <div class="media-content">
+                        <strong>Ne zha 2 (2025)</strong>
+                        <span>Director: Jiaozi</span>
+                        <div class="trailer-embed">
+                             <video controls>
+                                    <source src="nezha.mp4" type="video/mp4">
+                                    
+                             </video>
+                        </div>
+                    </div>
+                </li>
+                 <li>
+                    <div class="media-image">
+                        <img src="inter.jpg" alt="The Dark Knight poster">
+                    </div>
+                    <div class="media-content">
+                        <strong>Interstellar (2014)</strong>
+                        <span>Director: Christopher Nolan</span>
+                        <div class="trailer-embed">
+                             <video controls>
+                                    <source src="inter.mp4" type="video/mp4">
+                                
+                             </video>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+</section>
+<footer class="site-footer" role="contentinfo">
+
+    <div class="footer-content">
+        <div class="left-section">
+            <div class="logo-allin">
+                 PORTFOLIO
+            </div>
+            <div class="info">
+                <p>MUHAMMAD RASYAD SAEDIN</p>
+                <p>rysd146@gmail.com</p>
+                <p>Saujana Utama 1, Sungai Buloh, 47000</p>
+                <p>Selangor, Malaysia</p>
+                <p>TEL +60 11-1881 4557</p>
+            </div>
+        </div>
+
+        <div class="right-section">
+            
+            <div class="social-icons">
+                 <a href="https://www.facebook.com/profile.php?id=61583893108409" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="https://www.instagram.com/_.ferrerorasyad/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.linkedin.com/in/muhd-rasyad-8219042a4/" target="_blank" title="linkedin"><i class="fab fa-linkedin"></i></a>
+            </div>
+
+            <ul class="secondary-nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="skill.html">Skill</a></li>
+                <li><a href="edu.html">Education</a></li>
+                <li><a href="work.html">WORK EXPERIENCE</a></li>
+                <li><a href="pro.html">PROJECT</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="gallary.html">GALLERY</a></li>
+            </ul>
+            
+        </div>
+    </div>
+    
+    <div class="copyright-bottom">
+        <span>© 2025 RASYAD SAEDIN. All rights reserved.</span>
+    </div>
+</footer>
+
+<script>
+    function updateTime() {
+        const now = new Date();
+        
+        const dateOptions = { weekday: 'short', day: 'numeric', month: 'short' };
+        const formattedDate = now.toLocaleDateString('en-GB', dateOptions);
+
+        const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        const formattedTime = now.toLocaleTimeString('en-GB', timeOptions);
+
+        document.getElementById('current-time').innerHTML = `
+            ${formattedDate} 
+            <span class="separator">|</span>
+            <span class="time-display">${formattedTime}</span>
+        `;
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects & Interfaces - RS Portfolio</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+    
+}
+
+
+html, body {
+    min-height: 100%;
+    height: 100%; 
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+
+nav .logo-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 2px; 
+}
+
+nav .logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #f7b338;
+}
+
+
+nav #current-time {
+    display: flex; 
+    align-items: center;
+    font-size: 13px;
+    color: #a0a0a0; 
+    font-weight: 300; 
+    padding: 0;
+    margin-left: 2px; 
+}
+
+
+#current-time .separator {
+    margin: 0 8px;
+    color: rgba(255, 255, 255, 0.2);
+    font-weight: 200;
+}
+#current-time .time-display {
+    color: #ffffff; 
+    font-size: 14px; 
+    font-weight: 600; 
+    letter-spacing: 1px;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f7b338;
+}
+
+
+.main-content {
+    flex-grow: 1; 
+}
+
+
+.header-section {
+    text-align: center;
+    padding-top: 130px;
+    padding-bottom: 30px;
+}
+
+.header-section h1 {
+    font-size: 40px;
+    color: #f7b338;
+    margin: 0;
+}
+
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    padding: 20px 50px 60px;
+    box-sizing: border-box;
+}
+
+.project-card {
+    background: #111111;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.25s ease;
+    border: 2px solid #f7b338;
+    overflow: hidden;
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    
+    display: block;
+    background: #222;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.project-title {
+    margin-top: 12px;
+    font-size: 16px;
+    color: #dcc3c3;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 60px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+
+
+footer.site-footer {
+    width: 100%;
+    background: #222222; 
+    color: #a0a0a0; 
+    padding: 40px 50px; 
+    font-size: 14px;
+    z-index: 900;
+    border-top: none; 
+    box-sizing: border-box;
+    margin-top: auto;
+}
+
+footer.site-footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding-bottom: 20px; 
+    margin-bottom: 0;
+}
+
+footer.site-footer .left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+footer.site-footer .left-section .logo-allin {
+    font-size: 20px; 
+    font-weight: bold; 
+    color: #ffffff; 
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+footer.site-footer .left-section .logo-allin::before {
+    content: 'RS'; 
+    font-size: 50px; 
+    font-weight: 900;
+    margin-right: 5px;
+    line-height: 1;
+    display: inline-block;
+    color: white;
+}
+
+
+footer.site-footer a {
+    color: #ffffff; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer.site-footer a:hover {
+    color: #f7b338; 
+}
+
+footer.site-footer .info p {
+    margin: 3px 0;
+    line-height: 1.5;
+}
+
+footer.site-footer .right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    gap: 15px; 
+    margin-top: 15px;
+    max-width: 60%; 
+}
+
+footer.site-footer .secondary-nav-menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 25px;
+    margin: 0;
+    width: 100%;
+    justify-content: flex-end; 
+}
+
+footer.site-footer .secondary-nav-menu li a {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 15px;
+    white-space: nowrap; 
+}
+footer.site-footer .secondary-nav-menu li a:hover {
+    color: #f7b338;
+}
+
+
+
+footer.site-footer .social-icons {
+    display: flex;
+    gap: 20px;
+    align-self: flex-end; 
+    margin-bottom: 15px; 
+}
+
+footer.site-footer .social-icons a {
+    color: #ffffff;
+    font-size: 20px; 
+}
+
+footer.site-footer .copyright-bottom {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    width: 100%;
+    text-align: right;
+    font-size: 12px;
+    color: #777777; 
+    padding-top: 10px;
+}
+
+
+@media (max-width: 520px) {
+    nav { padding: 12px 18px; }
+    .gallery { padding: 12px 18px 90px; }
+    .project-card img { height: 160px; }
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+    <div class="logo-container">
+        <div class="logo">RS PORTFOLIO</div>
+        <div id="current-time"></div> 
+    </div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skill.html">Skills</a></li>
+        <li><a href="edu.html">Education</a></li>
+        <li><a href="work.html">Work Experience</a></li>
+        <li><a href="pro.html">Project</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="gallary.html">Gallery</a></li>
+    </ul>
+</nav>
+
+<div class="main-content">
+    <section class="header-section">
+        <h1>Projects & Interfaces</h1>
+    
+        <div class="section-title">VALOCITY WATERPARK TICKET WEBSITE</div>
+        <p><center>Subject: Database for Business Information Professionals (IMD261) </center></p>
+        <p><center> Semester: 4 </center></p>
+    </section>
+
+
+    <section class="gallery">
+
+        <div class="project-card">
+            <img src="customer login.png" alt="Customer Login Interface">
+            <div class="project-title">Customer Login Interface</div>
+        </div>
+
+        <div class="project-card">
+            <img src="customer sign up.png" alt="Customer Sign Up Interface">
+            <div class="project-title">Customer Sign Up Interface</div>
+        </div>
+
+        <div class="project-card">
+            <img src="book ticket (customer).png" alt="Book Ticket Interface">
+            <div class="project-title">Book Ticket Interface</div>
+        </div>
+
+        <div class="project-card">
+            <img src="customer list (admin).png" alt="Customer List (Admin)">
+            <div class="project-title">Customer List (Admin)</div>
+        </div>
+
+        <div class="project-card">
+            <img src="register new customer (admin).png" alt="Register New Customer (Admin)">
+            <div class="project-title">Register New Customer (Admin)</div>
+        </div>
+
+        <div class="project-card">
+            <img src="ticket booking list (admin).png" alt="Ticket Booking List (Admin)">
+            <div class="project-title">Ticket Booking List (Admin)</div>
+        </div>
+
+        <div class="project-card">
+            <img src="new ticket booking(admin).png" alt="New Ticket Booking (Admin)">
+            <div class="project-title">New Ticket Booking (Admin)</div>
+        </div>
+        
+        <div class="project-card">
+            <img src="tli.png" alt="Update Customer Information">
+            <div style="height:12px;"></div>
+            <div class="project-title">Update Customer Information</div>
+        </div> 
+        
+
+    </section>
+</div>
+<footer class="site-footer" role="contentinfo">
+
+    <div class="footer-content">
+        <div class="left-section">
+            <div class="logo-allin">
+                 PORTFOLIO
+            </div>
+            <div class="info">
+                <p>MUHAMMAD RASYAD SAEDIN</p>
+                <p>rysd146@gmail.com</p>
+                <p>Saujana Utama 1, Sungai Buloh, 47000</p>
+                <p>Selangor, Malaysia</p>
+                <p>TEL +60 11-1881 4557</p>
+            </div>
+        </div>
+
+        <div class="right-section">
+            
+            <div class="social-icons">
+                 <a href="https://www.facebook.com/profile.php?id=61583893108409" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="https://www.instagram.com/_.ferrerorasyad/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.linkedin.com/in/muhd-rasyad-8219042a4/" target="_blank" title="linkedin"><i class="fab fa-linkedin"></i></a>
+            </div>
+
+            <ul class="secondary-nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="skill.html">Skill</a></li>
+                <li><a href="edu.html">Education</a></li>
+                <li><a href="work.html">WORK EXPERIENCE</a></li>
+                <li><a href="pro.html">PROJECT</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="gallary.html">GALLERY</a></li>
+            </ul>
+            
+        </div>
+    </div>
+    
+    <div class="copyright-bottom">
+        <span>© 2025 RASYAD SAEDIN. All rights reserved.</span>
+    </div>
+</footer>
+
+<script>
+    function updateTime() {
+        const now = new Date();
+        
+      
+        const dateOptions = { weekday: 'short', day: 'numeric', month: 'short' };
+        const formattedDate = now.toLocaleDateString('en-GB', dateOptions);
+
+      
+        const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        const formattedTime = now.toLocaleTimeString('en-GB', timeOptions);
+
+ 
+        document.getElementById('current-time').innerHTML = `
+            ${formattedDate} 
+            <span class="separator">|</span>
+            <span class="time-display">${formattedTime}</span>
+        `;
+    }
+
+    
+    updateTime();
+    setInterval(updateTime, 1000);
+</script>
+</body>
+</html>

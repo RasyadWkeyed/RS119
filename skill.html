@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills - RS Portfolio</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"> 
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+   
+}
+
+
+html, body {
+    min-height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+
+nav .logo-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 2px; 
+}
+
+nav .logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #f7b338;
+}
+
+
+nav #current-time {
+    display: flex; 
+    align-items: center;
+    font-size: 13px; 
+    color: #a0a0a0; 
+    font-weight: 300; 
+    padding: 0;
+    margin-left: 2px; 
+}
+
+
+#current-time .separator {
+    margin: 0 8px;
+    color: rgba(255, 255, 255, 0.2);
+    font-weight: 200;
+}
+#current-time .time-display {
+    color: #ffffff; 
+    font-size: 14px; 
+    font-weight: 600; 
+    letter-spacing: 1px;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f7b338;
+}
+
+
+.section {
+    padding-top: 140px;
+    padding-bottom: 60px; 
+    display: flex;
+    justify-content: center;
+    flex-grow: 1; 
+}
+
+.skill-box {
+    width: 85%;
+    background: #0d0d0d;
+    padding: 40px;
+    border-radius: 35px;
+    box-shadow: 0 0 25px rgba(255, 174, 0, 0.55);
+}
+
+.skill-box h2 {
+    text-align: center;
+    color: #f7b338;
+    font-size: 34px;
+    letter-spacing: 1px;
+    margin-bottom: 45px;
+}
+
+/* GRID */
+.row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+/* CARDS */
+.card {
+    background: #000;
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #f7b338;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 18px rgba(247, 179, 56, 0.55);
+}
+
+.card h3 {
+    color: #f7b338;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 23px;
+}
+
+
+
+
+.card ul {
+    list-style: none;
+    padding-left: 0; 
+    margin: 0;
+}
+
+.card ul li {
+    list-style: none; 
+    margin-bottom: 10px;
+    color: #dcdcdc;
+    position: relative; 
+    padding-left: 25px;
+}
+
+
+.card ul li::before {
+    content: "⭐"; 
+    color: #f7b338; 
+    font-size: 1.1em;
+    font-weight: bold;
+    
+    position: absolute;
+    left: 0; 
+    top: 0;
+}
+
+
+.card ol {
+    list-style: decimal inside; 
+    padding-left: 15px; 
+}
+
+.card ol li {
+    margin-bottom: 10px; 
+    color: #dcdcdc;
+}
+
+
+
+
+.icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.icons img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: 0.2s ease;
+}
+
+.icons img:hover {
+    transform: scale(1.08);
+}
+
+footer.site-footer {
+    width: 100%;
+    background: #222222; 
+    color: #a0a0a0; 
+    padding: 40px 50px; 
+    font-size: 14px;
+    z-index: 900;
+    border-top: none; 
+    box-sizing: border-box;
+    margin-top: auto; 
+}
+
+footer.site-footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding-bottom: 20px; 
+    margin-bottom: 0;
+}
+
+footer.site-footer .left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+footer.site-footer .left-section .logo-allin {
+    font-size: 20px; 
+    font-weight: bold; 
+    color: #ffffff; 
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+
+footer.site-footer .left-section .logo-allin::before {
+    content: 'RS'; 
+    font-size: 35px;
+    font-weight: 900;
+    margin-right: 5px;
+    line-height: 1;
+    display: inline-block;
+    color: white;
+}
+
+
+footer.site-footer a {
+    color: #ffffff; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer.site-footer a:hover {
+    color: #f7b338; 
+}
+
+footer.site-footer .info p {
+    margin: 3px 0;
+    line-height: 1.5;
+}
+
+footer.site-footer .right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    gap: 15px; 
+    margin-top: 15px;
+    max-width: 60%; 
+}
+
+
+footer.site-footer .secondary-nav-menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 25px;
+    margin: 0;
+    width: 100%;
+    justify-content: flex-end; 
+}
+
+footer.site-footer .secondary-nav-menu li a {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 15px;
+    white-space: nowrap; 
+}
+footer.site-footer .secondary-nav-menu li a:hover {
+    color: #f7b338;
+}
+
+
+
+footer.site-footer .social-icons {
+    display: flex;
+    gap: 20px;
+    align-self: flex-end; 
+    margin-bottom: 15px; 
+}
+
+footer.site-footer .social-icons a {
+    color: #ffffff;
+    font-size: 20px; 
+}
+
+
+footer.site-footer .nav-links-bottom {
+    display: none;
+}
+
+footer.site-footer .copyright-bottom {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    width: 100%;
+    text-align: right;
+    font-size: 12px;
+    color: #777777; 
+    padding-top: 10px;
+}
+
+
+
+@media (max-width: 900px) {
+    .row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 12px 20px;
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    .row {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-box {
+        padding: 25px;
+        border-radius: 25px;
+    }
+
+    .icons img {
+        width: 60px;
+        height: 60px;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo-container">
+        <div class="logo">RS PORTFOLIO</div>
+        <div id="current-time"></div> 
+    </div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skill.html">Skills</a></li>
+        <li><a href="edu.html">Education</a></li>
+        <li><a href="work.html">Work Experience</a></li>
+        <li><a href="pro.html">Project</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="gallary.html">Gallery</a></li>
+    </ul>
+</nav>
+
+<section class="section">
+    <div class="skill-box">
+        <h2>SKILLS</h2>
+
+        <div class="row">
+
+            <div class="card">
+                <h3>Soft Skills</h3>
+                <ol>
+                    <li>Teamwork</li>
+                    <li>Communication</li>
+                    <li>Information Organization</li>
+                    <li>Time Management</li>
+                    <li>Data Entry</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h3>Technical Skills</h3>
+                <div class="icons">
+                    <img src="cpp.jpg" alt="C++">
+                    <img src="ht.jpg" alt="HTML">
+                    <img src="pr.jpg" alt="Premiere Pro">
+                    <img src="sql.jpg" alt="MySQL">
+                    <img src="ex.jpg" alt="Excel">
+                    <img src="cv.jpg" alt="Canva">
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Languages</h3>
+                <ul>
+                    <li>Malay</li>
+                    <li>English</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+
+    <div class="footer-content">
+        <div class="left-section">
+            <div class="logo-allin">
+                PORTFOLIO
+            </div>
+            <div class="info">
+                <p>MUHAMMAD RASYAD SAEDIN</p>
+                <p>rysd146@gmail.com</p>
+                <p>Saujana Utama 1, Sungai Buloh, 47000</p>
+                <p>Selangor, Malaysia</p>
+                <p>TEL +60 11-1881 4557</p>
+            </div>
+        </div>
+
+        <div class="right-section">
+            
+            <div class="social-icons">
+                 <a href="https://www.facebook.com/profile.php?id=61583893108409" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="https://www.instagram.com/_.ferrerorasyad/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.linkedin.com/in/muhd-rasyad-8219042a4/" target="_blank" title="linkedin"><i class="fab fa-linkedin"></i></a>
+            </div>
+
+            <ul class="secondary-nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="skill.html">Skill</a></li>
+                <li><a href="edu.html">Education</a></li>
+                <li><a href="work.html">WORK EXPERIENCE</a></li>
+                <li><a href="pro.html">PROJECT</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="gallary.html">GALLERY</a></li>
+            </ul>
+            
+            </div>
+    </div>
+    
+    <div class="copyright-bottom">
+        <span>© 2025 RASYAD SAEDIN. All rights reserved.</span>
+    </div>
+</footer>
+
+<script>
+    function updateTime() {
+        const now = new Date();
+        
+        const dateOptions = { weekday: 'short', day: 'numeric', month: 'short' };
+        const formattedDate = now.toLocaleDateString('en-GB', dateOptions);
+
+        
+        const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        const formattedTime = now.toLocaleTimeString('en-GB', timeOptions);
+
+        
+        document.getElementById('current-time').innerHTML = `
+            ${formattedDate} 
+            <span class="separator">|</span>
+            <span class="time-display">${formattedTime}</span>
+        `;
+    }
+
+    
+    updateTime();
+    setInterval(updateTime, 1000);
+</script>
+
+</body>
+</html>
